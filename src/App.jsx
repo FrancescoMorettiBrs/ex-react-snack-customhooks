@@ -1,9 +1,11 @@
 import useSwitch from "./useSwitch";
 import useDate from "./useDate";
+import useCustomPointer from "./useCustomPointer";
 
 function App() {
   const [isOn, toggle] = useSwitch();
   const { date, time } = useDate();
+  const customPointer = useCustomPointer("🔥");
 
   return (
     <>
@@ -16,6 +18,10 @@ function App() {
         <p>
           {date} - {time}
         </p>
+      </div>
+      <div>
+        <h1>Sposta il mouse per vedere il cursore personalizzato!</h1>
+        {customPointer}
       </div>
     </>
   );
