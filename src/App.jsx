@@ -1,11 +1,14 @@
 import useSwitch from "./useSwitch";
 import useDate from "./useDate";
 import useCustomPointer from "./useCustomPointer";
+import useKeyPress from "./useKeyPress";
 
 function App() {
   const [isOn, toggle] = useSwitch();
   const { date, time } = useDate();
   const customPointer = useCustomPointer("🔥");
+  const isEnter = useKeyPress("Enter");
+  const isEsc = useKeyPress("Escape");
 
   return (
     <>
@@ -22,6 +25,10 @@ function App() {
       <div>
         <h1>Sposta il mouse per vedere il cursore personalizzato!</h1>
         {customPointer}
+      </div>
+      <div>
+        <p>Enter: {isEnter ? "premuto" : "rilasciato"}</p>
+        <p>Esc: {isEsc ? "premuto" : "rilasciato"}</p>
       </div>
     </>
   );
